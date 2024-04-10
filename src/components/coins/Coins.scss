@@ -1,0 +1,95 @@
+.coinsContainer{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  a{
+    text-decoration: none;
+  }
+  .coinsLineContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-top: solid 1px #EFF2F5;
+
+    color: black;
+  }
+  .coinsLineContainer:hover{
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+  }
+  .coinContainerRow{
+    display: flex;
+    flex-direction: row;
+  }
+  .coinHeaderContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 40px;
+    border-top: solid 1px #EFF2F5;
+  }
+  .coins{
+    width: 25%;
+    height: 80px;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .coinIdNameSymbol{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    height: 40px;
+  }
+  .coinprice1h24h7dMarketCap{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: auto;
+    height: 40px;
+  }
+  .coinVolumeSupply7d{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+    height: 40px;
+  }
+  .headerItemCoinsHeader{
+    padding: 20px;
+  }
+  .coinPriceSymbol{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .coinPricingHour{
+    width: 	auto;
+    display: flex;
+    align-items: center;
+    
+  }
+  .index{
+    padding: 20px;
+  }
+  .coinName{
+    padding: 20px;
+    padding-right: 5px;
+  }
+  .coinPrice{
+    padding: 20px;
+  }
+  .coinSymbol{
+    padding: 20px;
+    padding-left: 5px;
+  
+    color: gray;
+  }

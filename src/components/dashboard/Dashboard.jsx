@@ -33,7 +33,7 @@ function Dashboard (){
       <div className='coinsContainer'> 
             {coins.map((coin) => {
               return (
-              <Coin id={coin.id} rank={coin.rank} name={coin.name} price={coin.priceUsd} symbol={coin.symbol} price24Hr={coin.changePercent24Hr} marketCapUsd={coin.marketCapUsd}/>
+              <Coin id={coin.id} rank={coin.rank} name={coin.name} price={coin.priceUsd} symbol={coin.symbol} price24Hr={coin.changePercent24Hr} marketCapUsd={coin.marketCapUsd} volumeUsd24Hr={coin.volumeUsd24Hr}/>
             )})}
       </div>
       </>

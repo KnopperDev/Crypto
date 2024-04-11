@@ -19,6 +19,7 @@ const Coin = (props) => {
             <div className='coinPrice'> {props.price24Hr !== undefined ? (<span style={{color: Number(props.price24Hr) < 0 ? 'rgb(234, 57, 67)': Number(props.price24Hr) > 0 ? 'rgb(102, 199, 132)': 'inrite',}}>{Number(props.price24Hr).toFixed(2)}</span>) : ('Loading...')}</div>
             <div className='coinPrice'> {props.marketCapUsd ? Number(props.marketCapUsd).toFixed(0) : 'Loading...'}</div>
             <div className='coinPrice'> {props.volumeUsd24Hr ? Number(props.volumeUsd24Hr).toFixed(0) : 'Loading...'}</div>
+            <div className='coinPrice'> {props.supply ? Number(props.volumeUsd24Hr).toFixed(0) : 'Loading...'}</div>
         </div>
     </div>
 </Link>

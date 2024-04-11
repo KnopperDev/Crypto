@@ -8,7 +8,7 @@
     text-decoration: none;
   }
   .coinsLineContainer{
-    width: 100%;
+    width: 1215px;
     display: flex;
     flex-direction: row;
     border-top: solid 1px #EFF2F5;
@@ -85,6 +85,7 @@
     padding-right: 5px;
   }
   .coinPrice{
+    width: fit-content;
     padding: 20px;
   }
   .coinSymbol{

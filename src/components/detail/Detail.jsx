@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.scss';
-import '.././coins/Coins.scss'
-import Coin from '../coins/Coins';
+import '.././detail/Detail.scss'
 import { useParams } from 'react-router-dom';
 
 function Detail (){
@@ -21,9 +20,18 @@ function Detail (){
     }
     return(
       <>
-      <div>{coin.name}</div>
-      <div>{coin.symbol}</div>
+      <div className='containerCoinInfo'>
+      <div>Id: {coin.id}</div>
+      <div>Symbol: {coin.symbol}</div>
+      <div>Name: {coin.name}</div>
+      <div>Supply: {coin.supply}</div>
+      <div>Marketcap: {coin.marketCapUsd}</div>
+      <div>24hr: {coin.volumeUsd24Hr}</div>
       <div>${coin.priceUsd ? Number(coin.priceUsd).toFixed(4) : 'Loading...'}</div>
+      <div>Percent 24hr: {coin.changePercent24Hr}</div>
+      <div>wap24hr: {coin.vwap24Hr}</div>
+      <div>Explorer: {coin.explorer}</div>
+      </div>
       </>
     )
 }

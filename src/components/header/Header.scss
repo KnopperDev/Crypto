@@ -10,3 +10,11 @@ header{
 a {
     color: black;
 }
+.headerspace{
+    display: flex;
+    flex-direction: row;
+
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}

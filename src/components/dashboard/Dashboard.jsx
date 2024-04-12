@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import '../../App.scss';
 import '.././coins/Coins.scss'
 import Coin from '../coins/Coins';
 
+
 function Dashboard (){
 
+  const navigate = useNavigate();
     const [coins, setCoins] = useState([]);
 
     useEffect(() => {
-      fetch("https://api.coincap.io/v2/assets")
-        .then((response) => response.json())
-        .then((json) => setCoins(json.data))
-    }, []);
+      axios.get("https://api.coincap.io/v2/assets")
+          .then((response) => {
+          setCoins(response.data.data);})
+          .catch(error => {console.error("Error fetching coin details", error); navigate('*');});
+  }, []);
     return(
         <>
         <div className='coinHeaderContainer'>
@@ -27,7 +32,6 @@ function Dashboard (){
         <div className='coinVolumeSupply7d'>
           <div className='headerItemCoinsHeader'>Volume(24h)</div>
           <div className='headerItemCoinsHeader'>Circulating Supply</div>
-          <div className='headerItemCoinsHeader'>Last 7 Days</div>
         </div>
       </div>
       <div className='coinsContainer'> 

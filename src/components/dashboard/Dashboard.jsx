@@ -40,12 +40,6 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className='coinHeaderContainer'>
-        <div className='coinIdNameSymbol'>
-          <div className='headerItemCoinsHeader'>#</div>
-          <div className='headerItemCoinsHeader'>Name</div>
-        </div>
-      </div>
       <div className='Container'>
       <div className='coinsContainer'>
         {coins.map((coin) => (

@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.containerCoinInfo{
+    width: auto;
+    height: 100%;
+    padding: 30px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+
+
+    border-radius: 5px;
+    border-style: solid;
+}

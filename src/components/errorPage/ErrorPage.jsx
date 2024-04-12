@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 const ErrorPage = () => {
     return (
 
-        <Link to={"/"}/>
+        <Link to={"/"}>
+            <h1>deze pagina is niet beschikbaar</h1>
+        </Link>
 
     )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import axios from 'axios'; // Let op: gebruik 'axios' in plaats van 'Axios'
+import api from '../../api/coincap'; // use the shared CoinCap v3 client
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -9,8 +9,8 @@ const Top10 = () => {
     const [coinData, setCoinData] = useState([]);
 
     useEffect(() => {
-        // API-aanroep om gegevens op te halen
-        axios.get('https://api.coincap.io/v2/assets/')
+        // API-aanroep om gegevens op te halen (CoinCap v3)
+        api.get('/assets')
             .then(response => {
                 const top10Coins = response.data.data.slice(0, 10); // Haal de top 10 munten
                 const coinNames = top10Coins.map(coin => coin.name);
@@ -19,7 +19,7 @@ const Top10 = () => {
                 setCoinData({ names: coinNames, marketCaps: marketCaps });
             })
             .catch(error => {
-                console.error("Fout bij het ophalen van gegevens:", error);
+                console.error('Fout bij het ophalen van gegevens:', error);
             });
     }, []);
 

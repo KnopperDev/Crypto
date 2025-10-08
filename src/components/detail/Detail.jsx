@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../../App.scss';
 import '.././detail/Detail.scss'
 import { useParams } from 'react-router-dom';
+import api from '../../api/coincap';
 
 function Detail (){
 
@@ -9,10 +10,9 @@ function Detail (){
     let { id } = useParams();
 
     useEffect(() => {
-      fetch('https://api.coincap.io/v2/assets/'+ id)
-        .then((response) => response.json())
-        .then((json) => setCoins(json.data))
-        .catch(error => console.error("Error Fetching", error))
+      api.get(`/assets/${id}`)
+        .then((response) => setCoins(response.data.data))
+        .catch(error => console.error('Error Fetching', error))
     }, [id]);
 
     if (!coin){

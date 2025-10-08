@@ -4,36 +4,36 @@ import '.././detail/Detail.scss'
 import { useParams } from 'react-router-dom';
 import api from '../../api/coincap';
 
-function Detail (){
+function Detail() {
 
-    const [coin, setCoins] = useState(null);
-    let { id } = useParams();
+  const [coin, setCoins] = useState(null);
+  let { id } = useParams();
 
-    useEffect(() => {
-      api.get(`/assets/${id}`)
-        .then((response) => setCoins(response.data.data))
-        .catch(error => console.error('Error Fetching', error))
-    }, [id]);
+  useEffect(() => {
+    api.get(`/assets/${id}`)
+      .then((response) => setCoins(response.data.data))
+      .catch(error => console.error('Error Fetching', error))
+  }, [id]);
 
-    if (!coin){
-      return <div> Loading..</div> 
-    }
-    return(
-      <>
+  if (!coin) {
+    return <div> Loading..</div>
+  }
+  return (
+    <>
       <div className='containerCoinInfo'>
-      <div>Id: {coin.id}</div>
-      <div>Symbol: {coin.symbol}</div>
-      <div>Name: {coin.name}</div>
-      <div>Supply: {coin.supply}</div>
-      <div>Marketcap: {coin.marketCapUsd}</div>
-      <div>24hr: {coin.volumeUsd24Hr}</div>
-      <div>${coin.priceUsd ? Number(coin.priceUsd).toFixed(4) : 'Loading...'}</div>
-      <div>Percent 24hr: {coin.changePercent24Hr}</div>
-      <div>wap24hr: {coin.vwap24Hr}</div>
-      <div>Explorer: {coin.explorer}</div>
+        <div>Id: {coin.id}</div>
+        <div>Symbol: {coin.symbol}</div>
+        <div>Name: {coin.name}</div>
+        <div>Supply: {coin.supply}</div>
+        <div>Marketcap: {coin.marketCapUsd}</div>
+        <div>24hr: {coin.volumeUsd24Hr}</div>
+        <div>${coin.priceUsd ? Number(coin.priceUsd).toFixed(4) : 'Loading...'}</div>
+        <div>Percent 24hr: {coin.changePercent24Hr}</div>
+        <div>wap24hr: {coin.vwap24Hr}</div>
+        <div>Explorer: {coin.explorer}</div>
       </div>
-      </>
-    )
+    </>
+  )
 }
 
 export default Detail;

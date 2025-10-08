@@ -1,0 +1,248 @@
+.top-10-layout {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.pie-chart-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+
+  .chart-container {
+    height: 400px;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.top-10-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.coin-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  .coin-card-header {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    
+    .coin-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      
+      .rank {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-2);
+      }
+      
+      .coin-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        object-fit: contain;
+        background: transparent;
+      }
+      
+      .coin-name {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        
+        .name {
+          font-weight: 600;
+          color: var(--text-1);
+        }
+        
+        .symbol {
+          font-size: 13px;
+          color: var(--text-2);
+          text-transform: uppercase;
+        }
+      }
+    }
+    
+    .price-change {
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 14px;
+      
+      &.positive {
+        color: var(--color-success);
+        background: rgba(22, 199, 132, 0.1);
+      }
+      
+      &.negative {
+        color: var(--color-danger);
+        background: rgba(234, 57, 67, 0.1);
+      }
+    }
+  }
+  
+  .coin-card-body {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    
+    .price,
+    .market-cap,
+    .volume {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      
+      .label {
+        font-size: 13px;
+        color: var(--text-2);
+      }
+      
+      .value {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-1);
+      }
+    }
+  }
+  
+  .coin-card-chart {
+    padding: 16px;
+    height: 120px;
+    
+    .chart-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, 
+        var(--bg-2) 0%, 
+        transparent 100%
+      );
+      border-radius: 8px;
+      opacity: 0.5;
+      
+      &.positive {
+        background: linear-gradient(180deg,
+          rgba(22, 199, 132, 0.1) 0%,
+          transparent 100%
+        );
+      }
+      
+      &.negative {
+        background: linear-gradient(180deg,
+          rgba(234, 57, 67, 0.1) 0%,
+          transparent 100%
+        );
+      }
+    }
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: var(--text-2);
+}
+
+@media (max-width: 1200px) {
+  .top-10-layout {
+    grid-template-columns: 350px 1fr;
+  }
+}
+
+@media (max-width: 992px) {
+  .top-10-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .pie-chart-section {
+    .chart-container {
+      height: 350px;
+    }
+  }
+
+  .top-10-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .coin-card {
+    .coin-card-body {
+      grid-template-columns: repeat(2, 1fr);
+      
+      .volume {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .content-wrapper {
+    padding: 0;
+  }
+  
+  .page-header {
+    padding: 0 16px;
+  }
+  
+  .top-10-grid {
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .coin-card {
+    border-radius: 4px;
+    
+    .coin-card-header {
+      padding: 12px;
+      
+      .coin-info {
+        gap: 8px;
+        
+        .coin-name .symbol {
+          display: none;
+        }
+      }
+    }
+    
+    .coin-card-body {
+      padding: 12px;
+      gap: 12px;
+      
+      .price,
+      .market-cap {
+        .label {
+          font-size: 12px;
+        }
+        
+        .value {
+          font-size: 14px;
+        }
+      }
+    }
+    
+    .coin-card-chart {
+      padding: 12px;
+      height: 100px;
+    }
+  }
+}

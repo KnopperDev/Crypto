@@ -1,142 +1,212 @@
-.coinsContainer{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  a{
-    text-decoration: none;
-    display: flex;
-  }
-  .coinsLineContainer{
-    width: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    border-top: solid 1px #EFF2F5;
-    transition: 0.2s;
-    padding: 10px;
-    padding-right: 10px;
+.coinsContainer {
+  width: 100%;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
 
-    color: black;
+.coinsHeader {
+  display: grid;
+  grid-template-columns: 60px minmax(200px, 2fr) repeat(4, 1fr) 100px;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+  
+  .headerItem {
+    color: var(--text-2);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    
+    &.right { text-align: right; }
   }
-  .coinsLineContainer:hover{
-    background-color: rgb(240, 240, 240);
-    transition: 0.2s ease-in-out;
+}
+
+.coinsLineContainer {
+  display: grid;
+  grid-template-columns: 60px minmax(200px, 2fr) repeat(4, 1fr) 100px;
+  gap: 16px;
+  padding: 16px 24px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.15s ease;
+  
+  &:hover {
+    background-color: var(--bg-2);
     cursor: pointer;
   }
-  .coinContainerRow{
-    display: flex;
-    flex-direction: row;
-  }
-  .coinHeaderContainer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-    height: 40px;
-    border-top: solid 1px #EFF2F5;
-  }
-  .coins{
-    width: 25%;
-    height: 80px;
+}
+
+.rank {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.coinInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+  .coinIcon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: transparent;
   }
-  .coinIdNameSymbol{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: auto;
-    height: 40px;
-  }
-  .coinprice1h24h7dMarketCap{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    width: auto;
-    height: 40px;
-  }
-  .favorite{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: auto;
-    height: 40px;
-  }
-  .headerItemCoinsHeader{
-    padding: 20px;
-  }
-  .coinPriceSymbol{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .coinPricingHour{
-    width: 	auto;
-    display: flex;
-    align-items: center;
-    
-  }
-  .index{
-    padding: 20px;
-  }
-  .coinName{
-    padding: 20px;
-    padding-right: 5px;
-  }
-  .coinPrice{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    width: 0px;
-    padding: 20px;
-    padding-left: 120px;
-  }
-  .coinSymbol{
-    padding: 20px;
-    padding-left: 5px;
   
-    color: gray;
-  }
-  .Container{
-    width: 80%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .favoriteButton{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-  }
-  .favoriteButtonb{
-    background-color: lightgreen;
-    width: auto;
-    height: 30px;
-    border-radius: 5px;
-  }
-  .favoritesTable{
+  .coinNameWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-left: 20px;
+    gap: 2px;
+    
+    .coinName {
+      font-weight: 600;
+      color: var(--text-1);
+    }
+    
+    .coinSymbol {
+      font-size: 13px;
+      color: var(--text-2);
+      text-transform: uppercase;
+    }
   }
-  .favoCoin{
-    background-color: lightblue;
-    width: auto;
-    height: 30px;
-    border-radius: 5px;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.price {
+  font-weight: 600;
+  color: var(--text-1);
+  text-align: right;
+}
+
+.priceChange {
+  text-align: right;
+  font-weight: 600;
+  
+  &.positive { color: var(--color-success); }
+  &.negative { color: var(--color-danger); }
+}
+
+.marketCap, .volume {
+  color: var(--text-1);
+  text-align: right;
+  
+  .label {
+    display: none;
+    color: var(--text-2);
+    font-size: 12px;
+    margin-bottom: 4px;
   }
+}
+
+.sparkline {
+  width: 120px;
+  height: 40px;
+  margin-left: auto;
+  
+  &.positive { color: var(--color-success); }
+  &.negative { color: var(--color-danger); }
+}
+
+.favoriteButton {
+  padding: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: color 0.15s ease;
+  
+  &:hover {
+    color: var(--color-warning);
+  }
+  
+  &.active {
+    color: var(--color-warning);
+  }
+}
+
+// Favorites sidebar
+.favoritesTable {
+  min-width: 280px;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  
+  h2 {
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: var(--text-1);
+  }
+  
+  .favoCoin {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--text-1);
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+    
+    &:hover {
+      background: var(--bg-2);
+    }
+    
+    .coinIcon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--bg-3);
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .coinsHeader, .coinsLineContainer {
+    grid-template-columns: 60px minmax(180px, 1.5fr) repeat(3, 1fr) 100px;
+  }
+  
+  .volume { display: none; }
+}
+
+@media (max-width: 992px) {
+  .coinsHeader, .coinsLineContainer {
+    grid-template-columns: 60px minmax(160px, 1.5fr) repeat(2, 1fr) 100px;
+  }
+  
+  .marketCap { display: none; }
+}
+
+@media (max-width: 768px) {
+  .coinsContainer {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .coinsHeader, .coinsLineContainer {
+    grid-template-columns: 40px 1fr repeat(2, 1fr);
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .sparkline { display: none; }
+  
+  .marketCap, .volume {
+    .label { display: block; }
+  }
+}
+
+@media (max-width: 576px) {
+  .coinsHeader, .coinsLineContainer {
+    grid-template-columns: 40px 1fr 1fr;
+  }
+  
+  .volume { display: none; }
+  .coinInfo .coinNameWrapper .coinSymbol { display: none; }
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { NavLink } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 import './Top-10.scss';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -9,6 +10,12 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const Top10 = () => {
     const [coinData, setCoinData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { isDarkMode } = useTheme();
+
+    // Helper function to get CSS variable values
+    const getCSSVariable = (variable) => {
+        return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -100,7 +107,7 @@ const Top10 = () => {
                 position: 'bottom',
                 align: 'start',
                 labels: {
-                    color: 'rgb(166, 176, 195)',
+                    color: isDarkMode ? '#a6b0c3' : '#58667e',
                     padding: 20,
                     font: {
                         size: 14
@@ -115,7 +122,7 @@ const Top10 = () => {
             title: {
                 display: true,
                 text: 'Market Cap Distribution',
-                color: 'rgba(8, 8, 8, 1)',
+                color: isDarkMode ? '#f8fafd' : '#000000',
                 font: {
                     size: 18,
                     weight: 'bold'
@@ -137,7 +144,11 @@ const Top10 = () => {
             <div className="top-10-layout">
                 <div className="pie-chart-section">
                     <div className="chart-container">
-                        <Pie data={chartData} options={chartOptions} />
+                        <Pie
+                            key={isDarkMode ? 'dark' : 'light'}
+                            data={chartData}
+                            options={chartOptions}
+                        />
                     </div>
                 </div>
 

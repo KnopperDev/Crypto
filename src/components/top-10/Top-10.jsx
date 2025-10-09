@@ -97,24 +97,30 @@ const Top10 = () => {
     const chartOptions = {
         plugins: {
             legend: {
-                position: 'right',
+                position: 'bottom',
+                align: 'start',
                 labels: {
                     color: 'rgb(166, 176, 195)',
                     padding: 20,
                     font: {
                         size: 14
-                    }
-                }
+                    },
+                    boxWidth: 15,
+                    boxHeight: 15,
+                },
+                maxItems: 10,
+                maxWidth: 1000,
+                fullSize: true,
             },
             title: {
                 display: true,
                 text: 'Market Cap Distribution',
-                color: 'rgb(248, 250, 253)',
+                color: 'rgba(8, 8, 8, 1)',
                 font: {
                     size: 18,
                     weight: 'bold'
                 },
-                padding: 20
+                padding: 10
             }
         },
         responsive: true,

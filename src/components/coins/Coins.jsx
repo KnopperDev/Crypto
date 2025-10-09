@@ -69,7 +69,7 @@ function Coins() {
           <div className='headerItem right'>24h %</div>
           <div className='headerItem right'>Market Cap</div>
           <div className='headerItem right'>Volume(24h)</div>
-          <div className='headerItem'>Chart</div>
+          <div className='headerItem'>Favorite</div>
         </div>
 
         {coinData.filter(coin => {
@@ -111,10 +111,6 @@ function Coins() {
               <div className='volume'>
                 <span className='label'>Volume</span>
                 {formatNumber(coin.volumeUsd24Hr)}
-              </div>
-
-              <div className={`sparkline ${parseFloat(coin.changePercent24Hr || 0) >= 0 ? 'positive' : 'negative'}`}>
-                {/* Placeholder for sparkline chart */}
               </div>
 
               <button
